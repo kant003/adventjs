@@ -1,0 +1,17 @@
+export default function maxProfit(prices) {
+  let p1=0
+    let p2=prices.length-1
+    let fin1=false
+    let fin2=false
+    while(p1!==p2 && (fin1===false || fin2===false)){
+        if(!fin1 && prices[p1]>=prices[p1+1]){
+            p1++
+        }else fin1=true
+        if(!fin2 && prices[p2]<=prices[p2-1]){
+            p2--
+        }else fin2=true
+    }
+    if(p1===p2) return -1
+    if(p1===prices.length-1 && p2===0) return -1
+    return prices[p2]-prices[p1]
+}
