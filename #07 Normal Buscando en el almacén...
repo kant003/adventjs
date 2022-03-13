@@ -1,0 +1,12 @@
+export default function contains(store, product) {
+     if (typeof store === 'object' && store !== null) { 
+        for (var p in store) {                   
+            if (contains(store[p], product))return true;
+        }
+    }else{
+        if(store===product){
+            return true;
+        }
+    }
+    return false;
+}
