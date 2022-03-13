@@ -1,0 +1,9 @@
+export default function countPackages(carriers, carrierID) {
+    const arr = carriers.find(([id]) => id === carrierID)
+    if(arr===null) return 0
+    let count=arr[1]
+    arr[2].forEach(e => {
+        count += countPackages(carriers, e)
+    });
+    return count
+}
