@@ -1,0 +1,28 @@
+function v(s){
+    if(s==='.') return 1
+    if(s===',') return 5
+    if(s===':') return 10
+    if(s===';') return 50
+    if(s==='!') return 100
+    return NaN
+  }
+export default function decodeNumber(symbols) {
+ symbols = symbols.split('')
+    let cont = 0
+    for (let i = 1; i < symbols.length; i++) {
+        const a = v(symbols[i - 1])
+        const b = v(symbols[i])
+        if (a === NaN || b === NaN) return NaN
+        cont += a<b?-a:a
+    }
+    
+    const a = v(symbols[symbols.length-2])
+    const b = v(symbols.length - 1)
+    if (a === NaN || b === NaN) return NaN
+    if (a < b) {
+        cont -= v(symbols[symbols.length - 1])
+    } else {
+        cont += v(symbols[symbols.length - 1])
+    }
+    return cont 
+}
