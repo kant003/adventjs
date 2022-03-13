@@ -1,0 +1,4 @@
+export default function contarOvejas(ovejas) {
+  ovejas = ovejas.filter(o=>o.color=='rojo' && /a/ig.test(o.name) && /n/ig.test(o.name))
+  return ovejas
+}
