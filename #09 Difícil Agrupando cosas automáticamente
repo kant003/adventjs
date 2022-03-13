@@ -1,0 +1,11 @@
+export default function groupBy(collection, it) {
+  let mapa = new Map()
+  collection.map(e=>{
+        const k= typeof it === 'function'?it(e): e[it]
+
+        if(!mapa.has(k)) mapa.set(parseInt(k),[e])
+        else mapa.get(k).push(e)
+  })
+    
+  return Object.fromEntries(mapa)
+}
