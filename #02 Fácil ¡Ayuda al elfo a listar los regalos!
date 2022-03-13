@@ -1,0 +1,16 @@
+export default function listGifts(letter) {
+ // ¡Tú puedes!
+ let letras=letter.replace(/\s+/g, ' ').trim().split(' ')
+ letras=letras.filter(l=>!l.startsWith('_'))
+ 
+ let mapa=new Map()
+ letras.forEach(l=>{
+   if(mapa.has(l)){
+     mapa.set(l,mapa.get(l)+1)
+   }else{
+     mapa.set(l,1)
+   }
+ })
+
+ return Object.fromEntries(mapa);
+}
