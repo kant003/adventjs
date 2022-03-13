@@ -1,0 +1,11 @@
+let m=[50,20,10,5,2,1]
+export default function getCoins(change) {
+    let a=[0,0,0,0,0,0]
+    for (let i = 0; i < m.length; i++) {
+        while (change >= m[i]) {
+            change -= m[i];
+            a[i]+=1
+        }
+    }
+    return a.reverse();
+  }
