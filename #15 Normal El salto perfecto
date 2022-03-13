@@ -1,0 +1,13 @@
+export default function checkSledJump(heights) {
+    let subiendo=undefined
+    let bajando=undefined
+    for(let i=1;i<heights.length;i++){
+       if(heights[i]-heights[i-1]>0){
+           if(bajando===true) return false
+           subiendo=true
+       }else{
+           bajando=true
+       }
+    }
+    return subiendo==true&&bajando==true
+}
