@@ -1,0 +1,6 @@
+export default function daysToXmas(date) {
+  var fa = new Date(2021, 12 - 1, 25).toLocaleDateString().split('/');
+  var fb = date.toLocaleDateString().split('/');
+  var resta = Date.UTC(fa[2], fa[1] - 1, fa[0]) - Date.UTC(fb[2], fb[1] - 1, fb[0]);
+  return Math.floor(resta / (1000 * 60 * 60 * 24));
+}
