@@ -1,0 +1,12 @@
+export default function createXmasTree(height) {
+  let m = ''
+  let l = height * 2 - 1
+  for (let i = 1; i <= height; i++) {
+    let c = i * 2 - 1
+    let guio = (l - c) / 2
+    m += '_'.repeat(guio) + '*'.repeat(c) + '_'.repeat(guio) + '\n'
+  }
+  m += '_'.repeat(l / 2) + '#' + '_'.repeat(l / 2) + '\n'
+  m += '_'.repeat(l / 2) + '#' + '_'.repeat(l / 2)
+  return m
+}
