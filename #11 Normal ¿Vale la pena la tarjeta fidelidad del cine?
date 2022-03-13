@@ -1,0 +1,5 @@
+export default function shouldBuyFidelity(times) {
+   let norm = 12 * times
+    let fide = 250 + 9 * (1-0.75**times )/(1-0.75)
+    return norm > fide
+}
