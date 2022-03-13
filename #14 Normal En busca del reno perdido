@@ -1,0 +1,7 @@
+export default function missingReindeer(ids) {
+ let suma=ids.reduce((a,b)=>a+b)
+    let n=ids.length
+    let gaus=n*(n+1)/2
+    
+    return gaus-suma
+}
