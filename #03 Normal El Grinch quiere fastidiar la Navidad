@@ -1,0 +1,16 @@
+export default function isValid(letter) {
+ let p = 0
+    if( /\(\s*\)/g.test(letter) ) return false  
+
+    for (let i = 0; i < letter.length; i++) {
+        if(p<0) return false
+        if (letter.charAt(i) === '(') p++
+        if (letter.charAt(i) === ')') p--
+        if (letter.charAt(i) === '[' && p > 0) return false
+        if (letter.charAt(i) === '{' && p > 0) return false
+          if(letter.charAt(i)===']'  && p>0) return false
+          if(letter.charAt(i)==='}'  && p>0) return false
+    }
+    if (p === 0) return true
+    return false
+}
